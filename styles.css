@@ -1,0 +1,36 @@
+/* General */
+
+@charset "utf-8";
+
+/* Element-wide */
+
+body {
+    font-family: Verdana, Helvetica, sans-serif;
+}
+
+/* Reusable */
+
+#wrapper {
+    margin: 0 auto;
+    width: 98%;
+}
+
+.centre {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Specific IDs */
+
+#loginInputTable {
+    width: 100%;
+    padding: 20px;
+    padding-top: 50px;
+    margin-top: 10%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: lightslategray;
+    border-radius: 10px;
+
+}
