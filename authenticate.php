@@ -40,21 +40,18 @@ while (!feof($fileHandler)) { // Loop CSV and save data
 }
 fclose($fileHandler);
 
-// Make array of only emails and of only passwords
+// Make array of only emails
 $authEmails = array();
-$authPasswords = array();
 
-for ($i = 0; $i < count($authData); $i++) { // Loop through data and add to arrays
+for ($i = 0; $i < count($authData); $i++) { // Loop through data and add to array
     $authEmails[$i] = $authData[$i][2];
-    $authPasswords[$i] = $authData[$i][3];
 }
 
 // Search through emails, handle result
 $emailSearch = bsearch($authEmails, $userEmail);
-$passwordSearch = bsearch($authPasswords, $userPassword);
 
 if ($emailSearch != -1) {
-    if ($passwordSearch == $emailSearch) {
+    if ($authData[$emailSearch][3] == $userPassword) {
         $_SESSION['userLoggedIn'] = true;
         $_SESSION['userAccess'] = $authData[$emailSearch][4];
         $_SESSION['userName'] = $authData[$emailSearch][1];
@@ -67,11 +64,13 @@ if ($emailSearch != -1) {
     $pageErrorText = "Email not found";
 }
 
-// If error send back, else continue to home
+// If error send back, else, clear email and password and continue to home
 if ($pageError) {
     $_SESSION['pageErrorText'] = $pageErrorText;
     header('refresh:0; url=index.php');
-} else {
+} else { 
+    $_SESSION['userEmail'] = '';
+    $_SESSION['userPassword'] = '';
     header('refresh:0; url=home.php');
 }
 

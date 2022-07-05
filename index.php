@@ -12,6 +12,8 @@ include("resources.php");
 // Init session and variables
 session_start();
 
+$_SESSION['userLoggedIn'] = false; //Just always making sure that users can't get in without logging in
+
 $userEmail = '';
 $userPassword = '';
 
@@ -53,15 +55,15 @@ if (isset($_SESSION["userEmail"])) {
                         <form id="login" name="login" method="post">
                         <table id="loginInputTable">
                         <tr>
-                            <td style="width: 30%; text-align: right;"><label for="email">Email:</label></td>
-                            <td style="width: 70%; "><input type="email" name="email" id="email" value="<?php echo $userEmail; ?>" maxlength="64" style="margin-left: 2%; width: 96%;"></td>
+                            <td style="width: 20%; text-align: right;"><label for="email">Email:</label></td>
+                            <td style="width: 80%; "><input type="email" name="email" id="email" value="<?php echo $userEmail; ?>" maxlength="64" style="margin-left: 2%; width: 96%;"></td>
                         </tr>
                         <tr>
                             <td style="padding-top: 2%; text-align: right;"><label for="password">Password:</label></td>
                             <td style="padding-top: 2%"><input type="password" name="password" id="password" value="<?php echo $userPassword; ?>" maxlength="64" style="margin-left: 2%; width: 96%;"></td>
                         </tr>
                         <!-- Print errors, will be empty if not returning from authentication page -->
-                        <tr><td><p style="color: red; text-align: right;"><?php echo $pageErrorText; ?></p></td></tr> 
+                        <tr><td colspan="2"><p style="color: red; text-align: right;"><?php echo $pageErrorText; ?></p></td></tr> 
                         <tr><td></td><td><p><input type="submit" id="submit" value="Login" formaction="authenticate.php" style="display: block; margin-left: auto; margin-right: 0;"></p></td></tr>
                         </table>
                         </form>

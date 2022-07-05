@@ -1,38 +1,60 @@
 <?php
 
-// loadHeader()
+// loadHeader(isAdmin)
 // Prints website header
-function loadHeader() {
-    print <<< EOT
-        <div class="menubar">
+// Only loads admin accessible if isAdmin is true
+function loadHeader($isAdmin) {
+    if ($isAdmin) {
+        print <<< EOT
+        <div id="menubar">
             <table width="100%" border="0" cellspacing="0" cellpadding="8">
             <tbody>
                 <tr>
-                    <td colspan="5" background-color="#e6e6fa"><img src="media/irepairsLogo.png" width="248" height="93" alt="" text-align="left"/></td>
-                </tr>
-                <tr class="menubar">
-                    <td width="20%"><a href="index.php" class="menulink">Home</a></td>
-                    <td width="20%"><a href="allcust.php" class="menulink">All Customers</a></td>
-                    <td width="20%"><a href="profits.php" class="menulink">Profits</a></td>
-                    <td width="20%"><a href="incomplete.php" class="menulink">Incomplete Jobs</a></td>
-                    <td width="20%"><a href="newcust.php" class="menulink">New Customer</a></td>
+                    <td width="6.25%" class="menulink"><img src="media/logo.png" alt="ACTS Global Churches" style="text-align: left; height: 100px;"/></td>
+                    <td width="6.25%" class="menulink"><a href="home.php">Home</a></td>
+                    <td width="6.25%" class="menulink"><a href="search.php">Search</a></td>
+                    <td width="6.25%" class="menulink"><a href="new.php">New</a></td>
+                    <td width="50%" class="menulink" id="menuMainHeading">Interest Calculator</td>
+                    <td width="12.5"></td>
+                    <td width="6.25%" class="menulink"><a href="interestSettings.php">Settings</a></td>
+                    <td width="6.25%" class="menulink"><a href="logout.php" id="logoutButton">Logout</a></td>
                 </tr>
             </tbody>
             </table>
         </div>
-    EOT;
+        EOT;
+    } else {
+        print <<< EOT
+        <div id="menubar">
+            <table width="100%" border="0" cellspacing="0" cellpadding="8">
+            <tbody>
+                <tr>
+                <td width="6.25%" class="menulink"><img src="media/logo.png" alt="ACTS Global Churches" style="text-align: left; height: 100px;"/></td>
+                <td width="6.25%" class="menulink"><a href="home.php">Home</a></td>
+                <td width="6.25%" class="menulink"><a href="search.php">Search</a></td>
+                <td width="6.25%" class="menulink"></td>
+                <td width="50%" class="menulink" id="menuMainHeading">Interest Calculator</td>
+                <td width="12.5"></td>
+                <td width="6.25%" class="menulink"></td>
+                <td width="6.25%" class="menulink"><a href="logout.php" id="logoutButton">Logout</a></td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        EOT;
+    }
 }
 
 // loadFooter()
 // Prints website footer
 function loadFooter() {
     print <<< EOT
-        <div class="footer">
-            <table width="100%">
+        <div id="footer">
+            <table style="width: 100%; border-top: 2px solid darkslategrey; background-color: #27247b;">
             <tbody>
                 <tr>
-                    <td class="menubar">
-                        ©2022 iRepairs
+                    <td style="padding: 10px; color: white;">
+                        ©Acts Global Churchs, 2022
                     </td>
                 </tr>
             </tbody>
@@ -69,6 +91,34 @@ function bsearch($searchData, $searchItem) {
         }
     }
     return -1;   
+}
+
+// validateAuth(checkAdmin)
+// validates that user is logged in and sends home if not
+// checkAdmin is a bool that determines whether authentication for admin status should be applied
+function validateAuth($checkAdmin) {
+    if (session_status() === PHP_SESSION_NONE) { // From https://stackoverflow.com/questions/6249707/check-if-php-session-has-already-started
+        session_start();
+    }
+
+    if (isset($_SESSION['userLoggedIn'])) {
+        if ($_SESSION['userLoggedIn'] != true) { // I did nested if statement because I'm not whether PHP always evaluates both statements
+            $_SESSION['pageErrorText'] = "User not logged in";
+            header('refresh:0; url=index.php');
+            exit;
+        }
+    } else {
+        $_SESSION['pageErrorText'] = "User not logged in";
+        header('refresh:0; url=index.php');
+        exit;
+    }
+
+    if ($checkAdmin == true) { // If admin-only auth required then check for admin and boot to home if viewer
+        if ($_SESSION['userAccess'] != 1) {
+            header('refresh:0; url=home.php');
+            exit;
+        }
+    }
 }
 
 ?>

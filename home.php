@@ -8,6 +8,9 @@ Home page for the site, leads to different functions
 // Include library
 include("resources.php");
 
+// Validate authentication
+validateAuth(false);
+
 ?>
 
 <!DOCTYPE html>
@@ -20,9 +23,10 @@ include("resources.php");
     </head>
 
     <body>
+        <?php loadHeader($_SESSION['userAccess']); ?>
         <div id="wrapper">
         
-            <?php loadHeader(); ?>
+            
 
             <table width="100%">
             <tbody>
@@ -32,10 +36,9 @@ include("resources.php");
                 </tr>
             </tbody>
             </table>
-            
-            <?php loadFooter(); ?>
 
         </div>
+        <?php loadFooter(); ?>
     </body>
 
 </html>
