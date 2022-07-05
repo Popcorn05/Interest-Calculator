@@ -50,4 +50,25 @@ function testInput($data) {
     return $data;
 }
 
+// bSearch(searchData, searchItem)
+// searchs through array searchData and returns location of searchItem
+// returns -1 if searchItem not in searchData
+function bsearch($searchData, $searchItem) {
+    sort($searchData);
+    $first = 0;
+    $last = count($searchData)-1;
+    $mid = 0;
+    while ($first <= $last) {
+        $mid = ($first+$last)>>1;
+        if ($searchData[$mid] == $searchItem) {
+            return $mid;
+        } else if ($searchData[$mid] > $searchItem) {
+            $last = $mid-1;
+        } else {
+            $first = $mid+1;
+        }
+    }
+    return -1;   
+}
+
 ?>
