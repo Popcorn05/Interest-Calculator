@@ -32,7 +32,6 @@ if (isset($_SESSION["userEmail"])) {
 <!DOCTYPE html>
 
 <html>
-
     <head>
         <link href="styles.css" rel="stylesheet" type="text/css">
         <title>iRepairs</title>
@@ -46,7 +45,7 @@ if (isset($_SESSION["userEmail"])) {
                 <tr>
                     <td>
                         <!-- Logo -->
-                        <img src="media/logo.png" width="50%" class="centre">
+                        <img src="media/logo.png" width="50%" class="centre" style="display: block;">
                     </td>
                 </tr>
                 <tr>
@@ -71,8 +70,6 @@ if (isset($_SESSION["userEmail"])) {
                 </tr>
             </tbody>
             </table>
-
         </div>
     </body>
-
 </html>

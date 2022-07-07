@@ -4,7 +4,7 @@
 // Prints website header
 // Only loads admin accessible if isAdmin is true
 function loadHeader($isAdmin) {
-    if ($isAdmin) {
+    if ($isAdmin) { // Print admin menubar
         print <<< EOT
         <div id="menubar">
             <table width="100%" border="0" cellspacing="0" cellpadding="8">
@@ -23,7 +23,7 @@ function loadHeader($isAdmin) {
             </table>
         </div>
         EOT;
-    } else {
+    } else { // Print viewer menubar
         print <<< EOT
         <div id="menubar">
             <table width="100%" border="0" cellspacing="0" cellpadding="8">
@@ -50,7 +50,7 @@ function loadHeader($isAdmin) {
 function loadFooter() {
     print <<< EOT
         <div id="footer">
-            <table style="width: 100%; border-top: 2px solid darkslategrey; background-color: #27247b;">
+            <table>
             <tbody>
                 <tr>
                     <td style="padding: 10px; color: white;">

@@ -32,7 +32,7 @@ $_SESSION['pageErrorText'] = $pageErrorText;
 
 // Import auth info to check against
 $authData = array();
-$fileHandler = fopen("authInfo.csv", "r");
+$fileHandler = fopen("data/authInfo.csv", "r");
 
 while (!feof($fileHandler)) { // Loop CSV and save data
     $curLine = fgetcsv($fileHandler, 1024);
