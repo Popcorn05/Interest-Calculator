@@ -43,7 +43,7 @@ validateAuth(false);
                             <td height="150px" width="40%"><a href="new.php"><button class="homeButton">New Calculation</button></a></td>
                         EOT;
                     } else { // Else print single button
-                        // Okay so this print is really scuffed, but I played around with the CSS for about 4 hours and could not get anything to work
+                        // Okay so this print is really scuffed, but I played around with the CSS for about 4 hours and could not get anything to work. It works for 16:9 which is the requirement, so this sticky tape will work for now
                         print <<< EOT
                             <td width="40%"></td>
                             <td height="150px" width="40%"><a href="search.php"><button class="homeButton">Search/View Data</button></a></td>

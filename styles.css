@@ -79,6 +79,10 @@ html, body {
     height: 100px;
 }
 
+#menubar td {
+    border-bottom: 1px solid darkslategray;
+}
+
 #footer {
     height: 60px;
     overflow: hidden;

@@ -10,7 +10,7 @@ function loadHeader($isAdmin) {
             <table width="100%" border="0" cellspacing="0" cellpadding="8">
             <tbody>
                 <tr>
-                    <td width="6.25%" class="menulink"><img src="media/logo.png" alt="ACTS Global Churches" style="text-align: left; height: 100px;"/></td>
+                    <td width="6.25%" class="menulink"><a href="home.php"><img src="media/logo.png" alt="ACTS Global Churches" style="text-align: left; height: 100px;"/></a></td>
                     <td width="6.25%" class="menulink"><a href="home.php">Home</a></td>
                     <td width="6.25%" class="menulink"><a href="search.php">Search</a></td>
                     <td width="6.25%" class="menulink"><a href="new.php">New</a></td>
