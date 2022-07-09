@@ -29,6 +29,7 @@ $_SESSION['pageErrorText'] = $pageErrorText;
 
 // Not any real input validation required; inputs have already been made safe, 
 // and because no data is being saved, only searched, other errors don't matter
+// as long as undefined behaviour is handled gracefully, then it doesn't matter
 
 // Import auth info to check against
 $authData = array();
@@ -75,3 +76,12 @@ if ($pageError) {
 }
 
 ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="icon" type="image/x-icon" href="media/logo.png">
+    </head>
+    <body>
+    </body>
+</html>

@@ -34,7 +34,8 @@ if (isset($_SESSION["userEmail"])) {
 <html>
     <head>
         <link href="styles.css" rel="stylesheet" type="text/css">
-        <title>iRepairs</title>
+        <title>Login</title>
+        <link rel="icon" type="image/x-icon" href="media/logo.png">
     </head>
 
     <body>
@@ -55,11 +56,11 @@ if (isset($_SESSION["userEmail"])) {
                         <table id="loginInputTable">
                         <tr>
                             <td style="width: 20%; text-align: right;"><label for="email">Email:</label></td>
-                            <td style="width: 80%; "><input type="email" name="email" id="email" value="<?php echo $userEmail; ?>" maxlength="64" style="margin-left: 2%; width: 96%;"></td>
+                            <td style="width: 80%; "><input type="email" name="email" id="email" value="<?php echo $userEmail; ?>" maxlength="64" style="margin-left: 2%; width: 96%;" required></td>
                         </tr>
                         <tr>
                             <td style="padding-top: 2%; text-align: right;"><label for="password">Password:</label></td>
-                            <td style="padding-top: 2%"><input type="password" name="password" id="password" value="<?php echo $userPassword; ?>" maxlength="64" style="margin-left: 2%; width: 96%;"></td>
+                            <td style="padding-top: 2%"><input type="password" name="password" id="password" value="<?php echo $userPassword; ?>" maxlength="64" style="margin-left: 2%; width: 96%;" required></td>
                         </tr>
                         <!-- Print errors, will be empty if not returning from authentication page -->
                         <tr><td colspan="2"><p style="color: red; text-align: right;"><?php echo $pageErrorText; ?></p></td></tr> 

@@ -200,7 +200,8 @@ if ($runChange == true) { // IF settings have been changed and new data must be 
 
     <head>
         <link href="styles.css" rel="stylesheet" type="text/css">
-        <title>iRepairs</title>
+        <title>Interest Settings</title>
+        <link rel="icon" type="image/x-icon" href="media/logo.png">
     </head>
 
     <body>
@@ -219,34 +220,34 @@ if ($runChange == true) { // IF settings have been changed and new data must be 
                 <form id="settings" name="settings" method="post">
                 <tr>
                     <td style="width: 50%; text-align: right;"><label for="valLoanRate">Loan Rate:&nbsp;</label></td>
-                    <td style="width: 15%; "><input type="text" name="valLoanRate" id="valLoanRate" value="<?php echo $valLoanRate; ?>" maxlength="4" style="width: 100px; text-align: right;"> %/year</td>
+                    <td style="width: 15%; "><input type="text" name="valLoanRate" id="valLoanRate" value="<?php echo $valLoanRate; ?>" maxlength="4" style="width: 100px; text-align: right;" required> %/year</td>
                     <td style="width: 35%; text-align: left; color: red;"><?php echo $errLoanRate; ?></td>
                 </tr>
                 <tr><td height="50px"></td></tr>
                 <tr>
                     <td style="padding-top: 10px; text-align: right;"><label for="valDepositThres1">Deposit Threshold 1: $</label></td>
-                    <td style="padding-top: 10px;"><input type="text" name="valDepositThres1" id="valDepositThres1" value="<?php echo $valDepositThres1; ?>" maxlength="10" style="width: 100px; text-align: right;"></td>
+                    <td style="padding-top: 10px;"><input type="text" name="valDepositThres1" id="valDepositThres1" value="<?php echo $valDepositThres1; ?>" maxlength="10" style="width: 100px; text-align: right;" required></td>
                     <td style="padding-top: 10px; text-align: left; color: red;"><?php echo $errDepositThres1; ?></td>
                 </tr>
                 <tr>
                     <td style="padding-top: 10px; text-align: right;"><label for="valDepositThres2">Deposit Threshold 2: $</label></td>
-                    <td style="padding-top: 10px;"><input type="text" name="valDepositThres2" id="valDepositThres2" value="<?php echo $valDepositThres2; ?>" maxlength="10" style="width: 100px; text-align: right;"></td>
+                    <td style="padding-top: 10px;"><input type="text" name="valDepositThres2" id="valDepositThres2" value="<?php echo $valDepositThres2; ?>" maxlength="10" style="width: 100px; text-align: right;" required></td>
                     <td style="padding-top: 10px; text-align: left; color: red;"><?php echo $errDepositThres2; ?></td>
                 </tr>
                 <tr><td height="50px"></td></tr>
                 <tr>
                     <td style="padding-top: 10px; text-align: right;"><label for="valDepositRate1">Deposit Rate 1:&nbsp;</label></td>
-                    <td style="padding-top: 10px;"><input type="text" name="valDepositRate1" id="valDepositRate1" value="<?php echo $valDepositRate1; ?>" maxlength="10" style="width: 100px; text-align: right;"> %/year</td>
+                    <td style="padding-top: 10px;"><input type="text" name="valDepositRate1" id="valDepositRate1" value="<?php echo $valDepositRate1; ?>" maxlength="10" style="width: 100px; text-align: right;" required> %/year</td>
                     <td style="padding-top: 10px; text-align: left; color: red;"><?php echo $errDepositRate1; ?></td>
                 </tr>
                 <tr>
                     <td style="padding-top: 10px; text-align: right;"><label for="valDepositRate2">Deposit Rate 2:&nbsp;</label></td>
-                    <td style="padding-top: 10px;"><input type="text" name="valDepositRate2" id="valDepositRate2" value="<?php echo $valDepositRate2; ?>" maxlength="10" style="width: 100px; text-align: right;"> %/year</td>
+                    <td style="padding-top: 10px;"><input type="text" name="valDepositRate2" id="valDepositRate2" value="<?php echo $valDepositRate2; ?>" maxlength="10" style="width: 100px; text-align: right;" required> %/year</td>
                     <td style="padding-top: 10px; text-align: left; color: red;"><?php echo $errDepositRate2; ?></td>
                 </tr>
                 <tr>
                     <td style="padding-top: 10px; text-align: right;"><label for="valDepositRate3">Deposit Rate 3:&nbsp;</label></td>
-                    <td style="padding-top: 10px;"><input type="text" name="valDepositRate3" id="valDepositRate3" value="<?php echo $valDepositRate3; ?>" maxlength="10" style="width: 100px; text-align: right;"> %/year</td>
+                    <td style="padding-top: 10px;"><input type="text" name="valDepositRate3" id="valDepositRate3" value="<?php echo $valDepositRate3; ?>" maxlength="10" style="width: 100px; text-align: right;" required> %/year</td>
                     <td style="padding-top: 10px; text-align: left; color: red;"><?php echo $errDepositRate3; ?></td>
                 </tr>
                 <tr><td></td><td style="padding-top: 10px;"><p><input type="submit" id="submit" value="Submit" formaction="interestSettings.php" style="padding: 3px;"></p></td></tr>

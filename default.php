@@ -20,6 +20,7 @@ validateAuth(false);
     <head>
         <link href="styles.css" rel="stylesheet" type="text/css">
         <title>iRepairs</title>
+        <link rel="icon" type="image/x-icon" href="media/logo.png">
     </head>
 
     <body>

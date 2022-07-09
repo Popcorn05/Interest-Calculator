@@ -21,3 +21,12 @@ $_SESSION['pageErrorText'] = '';
 header('refresh:0; url=index.php');
 
 ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Logout</title>
+        <link rel="icon" type="image/x-icon" href="media/logo.png">
+    </head>
+    <body>
+    </body>
+</html>

@@ -19,7 +19,8 @@ validateAuth(false);
 
     <head>
         <link href="styles.css" rel="stylesheet" type="text/css">
-        <title>iRepairs</title>
+        <title>Home</title>
+        <link rel="icon" type="image/x-icon" href="media/logo.png">
     </head>
 
     <body>
@@ -29,9 +30,9 @@ validateAuth(false);
             <table width="60%" class="centre" style="table-layout: fixed;">
             <tbody>
                 <tr>
-                    <td></td>
-                    <td><p style="font-style: italic; font-size: 24pt; color: #27247b; text-align: center; padding-top: 30px;">Welcome back, <?php echo $_SESSION['userName']; ?></p></td>
-                    <td></td>
+                    <!-- Okay so this bit is really scuffed, but I played around with the CSS for about 4 hours and could not get anything to work other than this -->
+                    <td><p style="font-style: italic; font-size: 24pt; color: white; text-align: center; padding-top: 30px;">Welcome back, <?php echo $_SESSION['userName']; ?>!</p></td>
+                    <td><p style="font-style: italic; font-size: 24pt; color: #27247b; text-align: center; padding-top: 30px;">Welcome back, <?php echo $_SESSION['userName']; ?>!</p></td>
                 </tr>
                 <tr height="200px"></tr>
                 <tr>
@@ -43,11 +44,10 @@ validateAuth(false);
                             <td height="150px" width="40%"><a href="new.php"><button class="homeButton">New Calculation</button></a></td>
                         EOT;
                     } else { // Else print single button
-                        // Okay so this print is really scuffed, but I played around with the CSS for about 4 hours and could not get anything to work. It works for 16:9 which is the requirement, so this sticky tape will work for now
                         print <<< EOT
-                            <td width="40%"></td>
+                            <td width="30%">&nbsp;</td>
                             <td height="150px" width="40%"><a href="search.php"><button class="homeButton">Search/View Data</button></a></td>
-                            <td width="30%"></td>
+                            <td width="30%">&nbsp;</td>
                         EOT;
                     }
                     
