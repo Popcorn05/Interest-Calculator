@@ -31,7 +31,7 @@ validateAuth(false);
             <tbody>
                 <tr>
                     <!-- Okay so this bit is really scuffed, but I played around with the CSS for about 4 hours and could not get anything to work other than this -->
-                    <td><p style="font-style: italic; font-size: 24pt; color: white; text-align: center; padding-top: 30px;">Welcome back, <?php echo $_SESSION['userName']; ?>!</p></td>
+                    <td><p style="font-style: italic; font-size: 24pt; color: white; text-align: center; padding-top: 30px; visibility: hidden;">Welcome back, <?php echo $_SESSION['userName']; ?>!</p></td>
                     <td><p style="font-style: italic; font-size: 24pt; color: #27247b; text-align: center; padding-top: 30px;">Welcome back, <?php echo $_SESSION['userName']; ?>!</p></td>
                 </tr>
                 <tr height="200px"></tr>

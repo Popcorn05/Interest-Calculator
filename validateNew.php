@@ -177,10 +177,10 @@ if ($conn->connect_error) {
 $q = "INSERT INTO tblaccountdata VALUES ('', '$output[0]', '$output[1]', '$output[2]', '$output[3]', '$output[4]')";
 
 if ($conn->query($q) === TRUE) {
-    header('refresh:0; url=view.php');
+    header("refresh:0; url=view.php?startDate=$output[1]&endDate=$output[1]&accNum=$output[0]");
 } else {
-    $_SESSION['errFile'] = "Error connecting to databse, try again";
-    header('refresh:0; url=new.php');
+    $_SESSION['errFile'] = "Error connecting to database, try again";
+    header("refresh:0; url=new.php");
 }
 
 $conn->close();
