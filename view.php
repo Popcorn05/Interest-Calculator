@@ -81,6 +81,7 @@ if ($result->num_rows > 0) {
         $i++;
     }
     array_multisort(array_column($searchResults, 1), SORT_ASC, $searchResults); // Sort by account number
+    $_SESSION['lastResults'] = $searchResults;
   } else {
     $isResults = false;
 }
