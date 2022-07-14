@@ -76,7 +76,7 @@ if ($result->num_rows > 0) {
     $searchResults = array();
     $i = 0;
     // output data of each row
-    while($row = $result->fetch_array()) {
+    while($row = $result->fetch_array(MYSQLI_NUM)) {
         $searchResults[$i] = $row;
         $i++;
     }
@@ -158,6 +158,7 @@ $conn->close();
                 EOT;
             }
             ?>
+            <tr><td colspan=6 id="exportButton"><a href="export.php"><button>Export</button></a></td></tr>
             </table>
         </div>
         <!-- Load footer -->

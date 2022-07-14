@@ -114,3 +114,20 @@ html, body {
     border-color: lightslategray;
     border-radius: 10px;
 }
+
+#exportButton {
+    text-align: right;
+}
+
+#exportButton>a {
+    width: 0;
+    height: 0;
+}
+
+#exportButton>a>button {
+    font-size: 14pt;
+    transform: translate(100px,-28px);
+    text-decoration: none;
+    width: 75px;
+    height: 25px;
+}
