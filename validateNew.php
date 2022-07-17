@@ -71,6 +71,7 @@ while (!feof($fileHandler)) { // Loop CSV and save data
 }
 fclose($fileHandler);
 
+// Pass current interest settings into local
 $valLoanRate = $interestSettings[0][0];
 $valDepositThres1 = $interestSettings[1][0];
 $valDepositThres2 = $interestSettings[2][0];
@@ -170,13 +171,14 @@ $output[4] = round($interest, 2);
 // Save output into database
 // From https://www.w3schools.com/php/php_mysql_insert.asp
 $conn = new mysqli("localhost","root","","dbinterestcalculator");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($conn->connect_error) { // If connect error send back
+    $_SESSION['errFile'] = "Error connecting to database, try again";
+    header("refresh:0; url=new.php");
 }
 
 $q = "INSERT INTO tblaccountdata VALUES ('', '$output[0]', '$output[1]', '$output[2]', '$output[3]', '$output[4]')";
 
-if ($conn->query($q) === TRUE) {
+if ($conn->query($q) === TRUE) { // If no errors then continue
     header("refresh:0; url=view.php?startDate=$output[1]&endDate=$output[1]&accNum=$output[0]");
 } else {
     $_SESSION['errFile'] = "Error connecting to database, try again";

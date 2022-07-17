@@ -26,6 +26,7 @@ if (isset($_GET['id']) && !empty($_GET['id']) && isset($_SESSION['lastResults'])
     header("refresh:0; url=view.php?startDate={$_SESSION['lastStart']}&endDate={$_SESSION['lastEnd']}&accNum={$_SESSION['lastAccNum']}");
 }
 
+// Get specific data row
 $i = bsearch(array_column($data,0),$id);
 if ($i != -1) {
     $row = $data[$i];

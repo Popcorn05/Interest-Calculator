@@ -17,8 +17,10 @@ if (isset($_SESSION['lastResults'])) {
     $data = $_SESSION['lastResults'];
 }
 
+// Start text
 $dataText = "Account Number,Date,Opening Balance,Closing Balance,Interest\n";
 
+// Open temp csv and overwrite with selected data
 $fileHandler = fopen('temp/temp.csv', 'w');
 for ($i = 0; $i < count($data); $i++) {
     $dataText = $dataText . implode(",",array_slice($data[$i],1)) . "\n";

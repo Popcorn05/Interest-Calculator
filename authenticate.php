@@ -28,7 +28,7 @@ $_SESSION['userPassword'] = $userPassword;
 $_SESSION['pageErrorText'] = $pageErrorText;
 
 // Not any real input validation required; inputs have already been made safe, 
-// and because no data is being saved, only searched, other errors don't matter
+// and because no data is being saved, only searched, other errors are irrelevant
 // as long as undefined behaviour is handled gracefully, then it doesn't matter
 
 // Import auth info to check against
@@ -51,8 +51,8 @@ for ($i = 0; $i < count($authData); $i++) { // Loop through data and add to arra
 // Search through emails, handle result
 $emailSearch = bsearch($authEmails, $userEmail);
 
-if ($emailSearch != -1) {
-    if ($authData[$emailSearch][3] == $userPassword) {
+if ($emailSearch != -1) { // If there is a result then check password and continue
+    if ($authData[$emailSearch][3] == $userPassword) { // Check email matches password
         $_SESSION['userLoggedIn'] = true;
         $_SESSION['userAccess'] = $authData[$emailSearch][4];
         $_SESSION['userName'] = $authData[$emailSearch][1];
@@ -60,7 +60,7 @@ if ($emailSearch != -1) {
         $pageError = true;
         $pageErrorText = "Password invalid";
     }
-} else {
+} else { // Else send back with error
     $pageError = true;
     $pageErrorText = "Email not found";
 }

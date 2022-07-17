@@ -116,8 +116,8 @@ $conn->close();
         
             <table width="80%" style="border-collapse: collapse; margin-left: auto; margin-right: auto; font-size: 16pt;">
             <?php
-            if ($isResults) {
-                if ($_SESSION['userAccess'] == 1) {
+            if ($isResults) { // If there are results then print them
+                if ($_SESSION['userAccess'] == 1) { // If admin print with delete buttons
                     print <<< EOT
                         <tr>
                             <th style="width: 19%; text-align: center; border: 1px solid darkslategrey; border-collapse: collapse;" >Account Number</th>
@@ -152,12 +152,13 @@ $conn->close();
                         }
                     }
                 }
-            } else {
+            } else { // If not results then display no results
                 print <<< EOT
                     <tr><th style="font-size: 20pt; padding-top: 50px;">No results</th></tr>
                 EOT;
             }
             ?>
+            <!-- Export Button -->
             <tr><td colspan=6 id="exportButton"><a href="export.php"><button>Export</button></a></td></tr>
             </table>
         </div>

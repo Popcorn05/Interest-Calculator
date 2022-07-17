@@ -43,7 +43,7 @@ if (isset($_POST['valLoanRate'])) {
     $runChange = true;
 }
 
-if ($runChange == true) { // IF settings have been changed and new data must be validated and saved
+if ($runChange == true) { // If settings have been changed and new data must be validated and saved
     $pageError = false; // If any data is incorrect this will be set to true and nothing will be saved
     // Pass changed values into temp vars for validation
     $valLoanRateNew = testInput($_POST['valLoanRate']);
