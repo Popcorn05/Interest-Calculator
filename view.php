@@ -116,6 +116,8 @@ $conn->close();
         
             <table width="80%" style="border-collapse: collapse; margin-left: auto; margin-right: auto; font-size: 16pt;">
             <?php
+            // Inline styling was used for the printing below because despite my best efforts using classes always resulted in issues 
+            // I know it would be far more easily readable had it been done in the stylesheet but alas
             if ($isResults) { // If there are results then print them
                 if ($_SESSION['userAccess'] == 1) { // If admin print with delete buttons
                     print <<< EOT

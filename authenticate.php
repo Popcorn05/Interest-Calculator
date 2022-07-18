@@ -49,6 +49,8 @@ for ($i = 0; $i < count($authData); $i++) { // Loop through data and add to arra
 }
 
 // Search through emails, handle result
+// Linear search would be more time and computationally efficient given the small data set 
+// but I already have a binary search on hand and am busy
 $emailSearch = bsearch($authEmails, $userEmail);
 
 if ($emailSearch != -1) { // If there is a result then check password and continue
