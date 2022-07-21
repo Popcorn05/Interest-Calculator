@@ -78,6 +78,16 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_array(MYSQLI_NUM)) {
         $searchResults[$i] = $row;
+        for ($j = 3; $j < 6; $j++) { // make sure display with 2 decimal points cos money
+            $k = explode(".",$searchResults[$i][$j]);
+            if (count($k) > 1) {
+                if (strlen($k[1]) == 1) {
+                    $searchResults[$i][$j] = $searchResults[$i][$j] . "0";
+                }
+            } else {
+                $searchResults[$i][$j] = $searchResults[$i][$j] . ".00";
+            }
+        }
         $i++;
     }
     array_multisort(array_column($searchResults, 1), SORT_ASC, $searchResults); // Sort by account number
