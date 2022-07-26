@@ -87,6 +87,7 @@ if ($result->num_rows > 0) {
             } else {
                 $searchResults[$i][$j] = $searchResults[$i][$j] . ".00";
             }
+            $searchResults[$i][$j] = "$" . $searchResults[$i][$j];
         }
         $i++;
     }
